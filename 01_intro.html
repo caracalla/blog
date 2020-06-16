@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Voronoi Shattering Implementation I - Intro and Background</title>
+  </head>
+  <body>
+    <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
+# Voronoi Shattering Implementation I - Intro and Background
+
+In this series, I'll be walking through how to implement Voronoi Shattering in a 3D rendering environment (i.e. one based on objects represented as triangle meshes).  I'll try to keep it as generic as possible, but it should be fairly down-and-dirty since I'll be implementing this in my [renderer project](https://github.com/caracalla/buffdog) in C++.
+
+## Series Contents:
+
+### I - [Intro and Background](01_intro.html)
+* This entry will cover some basic background and history, but if you're only interested in implementation, feel free to skip ahead to entry II below.  Most of my historical info will probably be from from Wikipedia, but hopefully updated as I find out new and interesting things in my readings.
+
+### II - [Delaunay Triangulation](02_triangulation.html)
+* A basic overview of Delaunay Triangulation (DT), how it relates to generating a Voronoi diagram, and an interactive web-based implementation of DT in two dimensions.
+
+### III - [Voronoi Diagrams](03_voronoi_diagrams.html)
+* Building a Voronoi diagram from its dual DT, starting in two dimensions.
+
+### IV - [Delaunay Tetrahedralization](04_tetrahedralization.html)
+* Expanding the process used in Part II from 2 dimensions to three dimensions
+
+### V - [Implementing Voronoi Shattering](05_shattering.html)
+* Building a 3D Voronoi diagram from its dual DT, and using that to convey realistic shattering in a real-time 3D renderer.
+
+### Potential Further Topics
+* Customizing the behavior of shattering by tweaking various elements of the algorithm:
+    * Point distribution
+    * ?
+
+## The History of Voronoi Diagrams
+
+TODO
+    </pre>
+    <div id="react-content-1"></div>
+
+    <!-- load all the dependencies -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/mode/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-markdown/4.3.1/react-markdown.js"></script>
+
+    <!-- my stuff, which turns the markdown-content items into HTMl -->
+    <script src="index.js"></script>
+  </body>
+</html>
