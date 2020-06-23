@@ -2,14 +2,82 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Article Title</title>
+    <title>Voronoi Shattering Implementation II - Delaunay Triangulation</title>
   </head>
   <body>
-    <!-- put your markdown here, but be sure it is not indented -->
-    <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
-# Article Title
+    <!-- hide the markdown content by default, because the js will process and show it -->
+    <style>
+      .markdown-content {
+        display: none;
+      }
+    </style>
 
-Make sure to change the title in the title tag as well!
+    <noscript>
+      <!-- if js is disabled, just show the markdown content -->
+      <style>
+        .markdown-content {
+          display: block
+        }
+      </style>
+    </noscript>
+
+    <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
+# Voronoi Shattering Implementation II - Delaunay Triangulation
+
+What follows is my disorganized notes.  What I hope to eventually present here is a concise explanation of my chosen implementation of 2D Delaunay triangulation, as well as an interactive example built in JS using canvas.
+
+## Facts
+* A triangulation does not exist for three or more points if they are colinear
+* The circumcircle of a triangle is the unique circle passing through the three vertices of the triangle
+* A delaunay triangulation is when the circumcircle of every triangle is empty (no points are in its interior)
+* If four or more points lie on the same circle, any triangulation of them is valid
+
+## Algorithm
+1. Make big enough triangle
+    1. "big enough" means:
+        * it contains all points in P
+        * will not destroy edges between points in P
+            * to deal with this, modify illegal edge test instead
+    2. find max and min x and y of P
+    3. find midpoint x and y
+    4. find max distance M from a max/min to a mid
+    5. put verticces at (3M, 0), (0, 3M), (-3M, -3M)
+2. insert a point p from P
+3. find the triangle t that p lies in
+    1. create a DAG D
+        1. root of D is big triangle
+        2. leaves of D are current triangles
+        3. maintain cross pointers between leaves of D and the triangulation (?)
+        4. when a triangle is split, the new triangles are the leaves of the current triangle
+            * all internal nodes are "destroyed" triangles
+            * all leaves are the current triangulation
+        5. when doing an edge flip, create new leaves for the new triangles, and add them as leaves of the replaced triangles
+    2. starting at root node, find triangle that p lies in for each child until a leaf node is reached
+4. divide t into smaller triangles with p as a vertex
+    * two possible cases:
+        1. p is inside of t - three triangles created from t
+        2. p is on an edge of t - two triangles created both triangles that share the edge
+            * to make it simpler, just move this one a little bit away from the edge
+            * or, just discard it?
+            * if a point is < epsilon away from an edge, discard it
+    1. update D
+5. flip edges until all are legal
+    1. first, flip outer edges of original triangle
+        * any new edges incident to p are legal
+    2. recursively flip edges of new triangles created by flipping edges
+    3. LEGALIZEEDGE
+6. repeat 2-5 for all other points in P
+
+```
+LEGALIZEEDGE(p, pipj, T?)
+    if edge is illegal:
+        replace pipj with prpl
+        LEGALIZEEDGE(p, pipl, T)
+        LEGALIZEEDGE(p, pjpl, T)
+```
+
+## Resources
+* http://web.mit.edu/alexmv/Public/6.850-lectures/lecture09.pdf
     </pre>
     <div id="react-content-1"></div>
 

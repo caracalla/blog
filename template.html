@@ -5,6 +5,22 @@
     <title>Article Title</title>
   </head>
   <body>
+    <!-- hide the markdown content by default, because the js will process and show it -->
+    <style>
+      .markdown-content {
+        display: none;
+      }
+    </style>
+
+    <noscript>
+      <!-- if js is disabled, just show the markdown content -->
+      <style>
+        .markdown-content {
+          display: block
+        }
+      </style>
+    </noscript>
+
     <!-- put your markdown here, but be sure it is not indented -->
     <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
 # Article Title
