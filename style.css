@@ -11,6 +11,12 @@ h1, h2, h3 {
   line-height:1.2;
 }
 
+.casual-updates-title {
+  color: #dd0000;
+}
+
 .casual-updates {
   font-size: 16px;
+  border: solid 3px #dd0000;
+  padding: 20px 40px;
 }
