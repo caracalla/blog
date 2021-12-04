@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Voronoi Shattering Implementation I - Intro and Background</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <!-- hide the markdown content by default, because the js will process and show it -->
+    <style>
+      .markdown-content {
+        display: none;
+      }
+    </style>
+
+    <noscript>
+      <!-- if js is disabled, just show the markdown content -->
+      <style>
+        .markdown-content {
+          display: block
+        }
+      </style>
+    </noscript>
+
+    <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
+# NFTs
+
+NFTs are an attempt to formalize ownership of digital assets in the same way one owns a physical asset: one item belongs to one person.  For that to be the case, the item must exist on one physical device, accessible only to the owner.  In contrast, most digital items, including most NFTs, are available online, and can be viewed, copied, and reuploaded by anyone at any time.
+
+In that case, what does digital ownership mean?
+
+Past attempts to establish such ownership, particularly in the music industry, failed, and were eventually supplanted by the streaming model.  The main value proposition of music streaming is to provide acccess to (but not ownership of) music more easily than finding it on your own in the thicket of free/illicit internet music purveyors, and not having to deal with local storage.  "Ownership" of a particular piece of music is a rapidly dying concept; either you're a subscriber to a service like Spotify and you have **easy** access to your favorite track, or you're not and you don't have that **easy** access.  You still have "un-easy" access, since music DRM never really caught on, but it's not one click away, and you likely have to store the files yourself.
+
+So what about digital art?  I can go on any number of websites, find artists, and view and save their art as many times as I want.  I can commission them to create a work, but if either I or the artist posts that work online, anyone else can save it too.  Is that theft?  In 2001, that was believable, but today, I think that would be a harder argument to make.  The question now is instead one of distribution, and the author/owner's intent for how that distribution should take place.
+
+Is that a problem?  NFT promoters seem to believe so, and that NFTs solve that problem.  But NFTs do not fundamentally alter the equation.  I can still view and save a piece of art that has been tokenized.  Maybe I can't access the higher resolution original version, which may have traded hands when the NFT was purchased, but that transaction could have happened even if the NFT wasn't a part of it.
+
+With or without NFTs, these questions remain unanswered:
+* Can artists be paid for their work, in a similar way that non-digital artists are?
+* Can the buyer be secure in knowing that they own the work?
+* What even is "ownership" with respect to digital art?
+* Is this ownership revoked when that art is uploaded to the internet?
+
+## Ownership
+
+In the logic of NFTs, ownership of a piece of digital art that is visible on the internet is denoted by a token declaring the buyer to be the owner.  However, unlike a painting, viewers don't have to travel to a location to view the art.  Reproduction of the art is trivial, right click, save to local device, and perhaps reupload somewhere else on the internet.  The "metaverse" promises to change that, but it doesn't exist yet, and as long as the metaverse is accessed by an electronic client device over some sort of data protocol, the data sent to that device (including the data representing the art) can be reproduced, saved, reuploaded, etc.
+
+Ownership of physical goods and intellectual property (IP), well established and preceding the internet, is enforced by central legal authorities, operating on laws and jurisprudence laying out the exact rules.  For physical goods of well-established provenance, the rules are simple: I own it, if you remove it from my possession, you stole it and I will press charges and you will be fined or imprisoned.  For IP, it's more complicated, but the idea is roughly the same: I own it, if you reproduce it (and especially if you profit from that act), you stole it and I will sue you and win damages.
+
+Many digital goods, like music, company logos, and particular algorithms, are treated in the same way as IP, and are subject to the same rules.  I can listen to a song on Spotify, but I do not own the song, nor does Spotify; it is owned by the record label that distributes it to Spotify through a licensing agreement.  I could buy that song outright from the record label, sue people that are distributing it without my permission, and enforce my ownership in court.  Thus, we could treat NFTs in the same way.  In this sense, an NFT is just a contract between the buyer and the seller, permitting the buyer to pursue legal action (assuming the courts would take the case).
+
+## The real problem
+
+In my opinion, NFTs are in line with the old-fashioned approach to IP ownership, a solution that does not take into account how things currently exist, and in which direction trends are going.  Art is being shared/distributed faster than anyone can keep track of it, even the artists who create it.  Making a fuss about a piece of art being "stolen" in this manner can cause even more sharing (i.e. the Streisand effect).  This proceed in one of several ways:
+1. We forego ownership entirely, and accept that "information wants to be free"
+2. We actively build platforms that respect ownership/NFTs, and walk back the status quo to the point preceding the internet where the concepts of ownership and theft were much more firm.
+
+The second option seems to be the default choice for NFT promoters.  The major counterargument against that push is that it stifles the creative freedom inherent in the early and current internet and presupposes that the pre-internet system is the only valid way to operate.
+
+Is there a third way?
+
+
+
+# Decentralization
+
+It is commonly put forth that the blockchain is crucial to decentralized platforms, but that's not true.
+
+Decentralization is the idea that, instead of using a service like Facebook, which is entirely centralized, we should instead use something like Mastodon.  Facebook is run by a single company, on their proprietary software, which runs from datacenters they own.  Mastodon could, theoretically, be run from a thousand bedrooms.  It might be less efficient, but if Facebook does something users don't like, they have no way to effect change, whereas Mastodon users can fork and/or run their own network.
+
+The problem Mastodon faces is incentivizing enough people to run their own servers to provide a service with consistent uptime and responsiveness to be competitive with Facebook et al.  The blockchain purports to solve this, by paying people to run a particular piece of software in exchange for some form of payment.
+
+This sounds great in theory, and the promise is still alive.  However, due to rampant speculation, the whole enterprise was overrun by those who sought to extract maximum profit while providing minimal value.  Thus, all the tokens are being traded for their own sake rather than providing a product with actual value (despite years of promises).
+
+How to we re-adjust the incentives?
+      
+    </pre>
+    <div id="react-content-1"></div>
+
+    <!-- load all the dependencies -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/mode/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-markdown/4.3.1/react-markdown.js"></script>
+
+    <!-- my stuff, which turns the markdown-content items into HTMl -->
+    <script src="main.js"></script>
+  </body>
+</html>

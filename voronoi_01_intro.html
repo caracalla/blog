@@ -28,10 +28,16 @@
 
 In this series, I'll be walking through how to implement Voronoi Shattering in a 3D rendering environment (i.e. one based on objects represented as triangle meshes).  I'll try to keep it as generic as possible, but it should be fairly down-and-dirty since I'll be implementing this in my [renderer project](https://github.com/caracalla/buffdog) in C++.
 
+## Motivation
+
+I like breaking stuff.  Unfortunately, breaking stuff in real life is usually messy, expensive, and socially inappropriate.  Some games have destructible environments and objects, but it's usually accomplished by either replacing the broken object with some generic rubble meshes, or, at best, with a set of meshes specific to that object.  There are some plugins available for modeling programs like Maya, but that's not exactly real time, and thus not as exciting to me.
+
+Since I'm already writing a renderer (and turning it into a game engine), I've decided to try implementing Voronoi shattering in it as efficiently as possible, to see if it's possible to do in real time as part of gameplay.  I'm hoping to learn a lot about writing algorithms efficiently, and produce something that is at least near the cutting edge.
+
 ## Series Contents:
 
 ### I - Intro and Background
-* This entry will cover some basic background and history, but if you're only interested in implementation, feel free to skip ahead to entry II below.  Most of my historical info will probably be from from Wikipedia, but hopefully updated as I find out new and interesting things in my readings.
+* You are here.  I hope to add a brief coverage of the history of the Delaunay and Voronoi diagram concepts, and those whose work I built upon.
 
 ### II - [Delaunay Triangulation](voronoi_02_triangulation.html)
 * A basic overview of Delaunay Triangulation (DT), how it relates to generating a Voronoi diagram, and an interactive web-based implementation of DT in two dimensions.
@@ -49,10 +55,13 @@ In this series, I'll be walking through how to implement Voronoi Shattering in a
 * Customizing the behavior of shattering by tweaking various elements of the algorithm:
     * Point distribution
     * ?
+* Interacting with a physics engine (likely one of my own making)
 
-## The History of Voronoi Diagrams
-
-TODO
+## References and Further Reading
+* [Jose Esteve's two part blog post on implementing Voronoi shattering](https://www.joesfer.com/?p=60) (my jumping-off point)
+* [Wikipedia's Delaunay Triangulation article](https://en.wikipedia.org/wiki/Delaunay_triangulation)
+* [Glenn Eguchi's slides on Delaunay Triangulation](http://web.mit.edu/alexmv/Public/6.850-lectures/lecture09.pdf)
+* [Hugo Ledoux's paper on computing 3D Voronoi diagrams](http://www.gdmc.nl/3dtopo/documents/RGI-011-56.pdf)
     </pre>
     <div id="react-content-1"></div>
 
