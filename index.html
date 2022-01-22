@@ -53,79 +53,80 @@
     <h2 class="casual-updates-title">Casual Updates</h2>
 
     <ul class="casual-updates">
-      <li>
+      <li class="casual-update">
         <strong>2022-01-22</strong>: I thought 2022 was gonna be my year, but so far it's been a series of mental gut punches instead.  Nonetheless, I have started the job search (hi to anybody who happens to be checking out my site from my resume), I'm interview prepping, and I've started working on a new (very) simple <a href="game_ideas.html">game idea</a> for buffdog/rockshot, Rocket Fighters.  I'll be going to Hawaii and elsewhere for the next couple of weeks, so maybe the distraction will allow me a mental reset.
+
+
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-12-12</strong>: Really deep diving on vkguide, vkQuake, and Vulkan-Samples.  I'm still fairly lost in the woods, but I'm beginning to understand how everything within Vulkan interacts, and how the same task can be achieved in many different ways.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-12-04</strong>: Gave up on Voronoi shattering, I'll come back to it later.  I've decided I need to focus on getting a functional engine working ASAP, and the first order of business is replacing <strong>buffdog</strong>'s software renderer with a bona fide Vulkan render.  To help bridge the gap, I'm following vblanco's <a href="https://vkguide.dev/">Vulkan Guide</a>, which seems to provide a roadmap to building a renderer that behaves similarly to one that would be used in a game engine.  Once I get something basic working there, I'll be moving on to physics and collision detection.  On the drawing front, I've been working pretty hard on hands, and I'm finally seeing some good progress.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-11-22</strong>: Finally working on Voronoi shattering again, diving back into my Delaunay triangulation code (which is a mess).
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-11-10</strong>: Been drawing about three pages a day, my best output so far.  I've put some more love into <strong>buffdog</strong>, and I'm even considering diving back into Vulkan.  Not sure how I feel about seeking employment again though.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-10-29</strong>: Drew lots of skulls this month, and I could see the improvement in both that and drawing circles freehand.  However, I'm pretty disappointed with my progress overall, and I'm planning to put much more effort forth in November.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-10-13</strong>: Working through <a href="https://github.com/caracalla/clrs">CLRS</a>.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-09-21</strong>: Adding BSP parsing to <strong>buffdog</strong> as a proof of concept, with the intent to add it to <strong>phalanx</strong> as a pre-built world/level and collision handling system.  I've also been making some Quake maps in <a href="https://trenchbroom.github.io/"">Trenchbroom</a>, both to test the parser and just because it's fun.  Wish I'd gotten into casual level design when I was much younger.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-09-14</strong>: Trying a new thing where I draw at least five things a day: an ATACMS rocket, a kei truck, a Tom Fox mannequin, a Loomis head, and some perspective boxes.  So far it's prevented me from drawing one line and calling it a day.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-09-07</strong>: Found the <a href="https://github.com/KhronosGroup/Vulkan-Samples">Vulkan-Samples</a> repository, which seems to contain the solution(s) to my aforementioned problem(s).  </a>Started <a href="https://github.com/caracalla/cmaketest">learning CMake</a> as well, since this and other repositories make heavy use of it.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-08-30</strong>: Turns out learning Vulkan is hard; there's so many ways to do any particular thing.  Currently struggling with how to propagate model transformation matrices to vertex shaders for each model.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-08-24</strong>: I've made pretty good progress on the Vulkan tutorial, as captured in <strong>phalanx</strong>.  I'm hoping to dive into <a href="https://github.com/Novum/vkQuake">vkQuake</a> and <a href="https://github.com/whatever">vkDOOM3</a> to better understand how Vulkan is actually used to do real time rendering in 3D game engines, since the tutorial really only renders static content, and doesn't deal with continually updated vertices and camera position.  My <strong>buffdog</strong> project handles this, but it's also a very hacky software renderer, and I'm planning to supplement it with a Vulkan renderer once my work with phalanx has run its course.
+        
+        <hr>
       </li>
 
-      <hr>
-
-      <li>
+      <li class="casual-update">
         <strong>2021-08-23</strong>: I'm hoping to post casual updates here on a regular basis from now on.  Right now, I don't really have an audience to talk about my work with, Twitter feels too restrictive, and writing a full blog post is too high of a bar.
       </li>
     </ul>
@@ -145,5 +146,54 @@
         <a href="https://github.com/caracalla">Github</a>
       </li>
     </ul>
+
+    <script>
+      // only show 3 casual updates, hide the rest unless the "Show More"
+      // button is pressed
+      let casualUpdateItems = document.getElementsByClassName('casual-update');
+      let showMoreUpdatesHidden = true;
+
+      // set up show more button
+      let showMoreButton = document.createElement("button");
+      let showMoreText = "Show More";
+      let showLessText = "Show Less";
+      showMoreButton.innerHTML = showMoreText;
+      showMoreButton.setAttribute("id", "show-more-button");
+
+      // show more logic
+      showMoreButton.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        let showMoreCasualUpdates =
+            document.getElementsByClassName('show-more-casual-update');
+
+        showMoreUpdatesHidden = !showMoreUpdatesHidden;
+
+        for (let i = 0; i < showMoreCasualUpdates.length; i++) {
+          item = showMoreCasualUpdates[i];
+
+          if (showMoreUpdatesHidden) {
+            item.classList.add("hidden-item");
+            event.target.innerHTML = showMoreText;
+          } else {
+            item.classList.remove("hidden-item");
+            event.target.innerHTML = showLessText;
+          }
+        }
+      });
+
+      // initial logic to hide the 4th+ casual updates, and insert the show
+      // more button after the third item
+      for (let i = 2; i < casualUpdateItems.length; i++) {
+        let item = casualUpdateItems[i];
+
+        if (i == 2) {
+          item.after(showMoreButton);
+        } else {
+          item.classList.add("show-more-casual-update");
+          item.classList.add("hidden-item");
+        }
+      }
+    </script>
   </body>
 </html>

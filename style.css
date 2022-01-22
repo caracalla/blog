@@ -20,3 +20,22 @@ h1, h2, h3 {
   border: solid 3px #dd0000;
   padding: 20px 40px;
 }
+
+.show-more-casual- {
+  font-size: 16px;
+  border: solid 3px #dd0000;
+  padding: 20px 40px;
+}
+
+.hidden-item {
+  display: none;
+}
+
+#show-more-button {
+  display: block;
+  width: 100%;
+  padding: 14px 28px;
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
