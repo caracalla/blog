@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Game Ideas</title>
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <!-- hide the markdown content by default, because the js will process and show it -->
+    <style>
+      .markdown-content {
+        display: none;
+      }
+    </style>
+
+    <noscript>
+      <!-- if js is disabled, just show the markdown content -->
+      <style>
+        .markdown-content {
+          display: block
+        }
+      </style>
+    </noscript>
+
+    <!-- put your markdown here, but be sure it is not indented -->
+    <pre id="markdown-content-1" class="markdown-content" style="white-space: pre-wrap;">
+# Game Ideas
+
+## Rocket Fighters
+
+The goal here is to make the minimum viable game with what I've built in [buffdog](https://github.com/caracalla/buffdog).  Collision detection is scary, but it's pretty necessary to make any kind of game, so I'll be incorporating it as simply as possible.
+
+The game will have three basic entity types:
+* **Platforms** - axis-aligned hexahedrons (I love that word) that will serve as places to stand and/or take cover behind.
+* **Fighters** - the player, any enemies, and potentially other players are fighters, represented by cylinders, which will move around on platforms and shoot rockets at each other from shoulder-mounted weapons.
+* **Rockets** - Fired by the players, they fly in straight lines at fixed speeds and explode if they hit a fighter, a platform, or fly some fixed distance without hitting anything.  These are already present in buffdog as tetrahedrons.
+
+Thus, the collisions expected will be of the following types:
+* fighter-fighter (cylinder-cylinder)
+* fighter-platform (cylinder-AABB)
+* rocket-platform (ray-AABB)
+* rocket-fighter (ray-cylinder)
+
+The level format will specify a list of platforms, followed by player start positions.  I don't think there will be textures or more advanced models, but I could certainly make the players, their weapons, and the rockets more detailed later on without changing the collision types.
+
+## Unspecified Idea
+
+I've been working on another Vulkan engine, which has turned into a kind of hybrid between phalanx and buffdog.  In the long term, I plan on replacing buffdog with it, but for now it's just a scratchpad.  I've implemented a level loading system, which basically consists of:
+___
+```
+# player info (position, rotation)
+0.0 0.0 0.0
+
+# assets base directory
+assets/
+
+# entities: model, then list of entities using that model
+# model format: model_file_name (texture_file_name)
+m large_buildingE.obj
+# entity format: position.xyz rotation.xyz scale
+e 0.0 0.0 -10.0 0.0 0.0 0.0 10.0
+e 2.0 0.0 -10.0 0.0 0.0 0.0 1.0
+e 4.0 0.0 -10.0 0.0 0.0 0.0 1.0
+e 6.0 0.0 -10.0 0.0 0.0 0.0 1.0
+e 8.0 0.0 -10.0 0.0 0.0 0.0 1.0
+m some_other_model.obj
+e 8.0 0.0 -10.0 0.0 0.0 0.0 1.0
+```
+___
+In this way, the world is populated with entities represented by models, the player is positioned, and I don't have to recompile the code every time I move something.  However, I don't have much beyond that, such as what the world itself will look like (a flat plane? rolling hills? enclosed space?).
+    </pre>
+    <div id="react-content-1"></div>
+
+    <!-- load all the dependencies -->
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.25.2/mode/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react-markdown/4.3.1/react-markdown.js"></script>
+
+    <!-- my stuff, which turns the markdown-content items into HTMl -->
+    <script src="main.js"></script>
+  </body>
+</html>
